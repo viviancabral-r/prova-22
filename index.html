@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgroFlow IA</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    
+
+    <section id="loginPage" class="login-page">
+
+        <div class="login-container">
+
+            <div class="logo">
+                
+            </div>
+
+            <h1>AgroFlow <span>IA</span></h1>
+
+            <p class="subtitle">
+                Gestão inteligente da safra
+            </p>
+
+            <form id="loginForm">
+
+                <label>E-mail</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+
+                <label>Senha</label>
+
+                <input
+                    type="password"
+                    id="senha"
+                    placeholder="Digite sua senha"
+                    required
+                >
+
+                <button type="submit" class="btn-primary">
+                    Entrar
+                </button>
+
+                <p id="loginMessage"></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    
+
+    <section id="systemPage" class="system-page hidden">
+
+
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                
+                <span>AgroFlow <b>IA</b></span>
+            </div>
+
+            <nav>
+
+                <button class="menu-button active" data-page="dashboard">
+                     Dashboard
+                </button>
+
+                <button class="menu-button" data-page="rotas">
+                     Rotas
+                </button>
+
+                <button class="menu-button" data-page="silos">
+                     Silos
+                </button>
+
+                <button class="menu-button" data-page="caminhoes">
+                     Caminhões
+                </button>
+
+                <button class="menu-button" data-page="ia">
+                     Inteligência IA
+                </button>
+
+                <button class="menu-button" data-page="relatorios">
+                     Relatórios
+                </button>
+
+            </nav>
+
+            <button id="logoutButton" class="logout">
+                 Sair
+            </button>
+
+        </aside>
+
+
+        
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+                    <h2 id="pageTitle">
+                        Dashboard
+                    </h2>
+
+                    <p>
+                        Monitoramento da operação agrícola
+                    </p>
+                </div>
+
+                <div class="user-info">
+                     Operador
+                </div>
+
+            </header>
+
+
+            
+
+            <section id="dashboard" class="page active-page">
+
+                <div class="welcome">
+
+                    <div>
+                        <h1>Visão geral da safra</h1>
+
+                        <p>
+                            Acompanhe os principais indicadores da cooperativa.
+                        </p>
+                    </div>
+
+                    <div class="date" id="date"></div>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <div class="card-icon">
+                            
+                        </div>
+
+                        <p>Caminhões em fila</p>
+
+                        <h2 id="fila">
+                            42
+                        </h2>
+
+                        <span>
+                            aguardando descarga
+                        </span>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-icon">
+                            ⏱
+                        </div>
+
+                        <p>Tempo médio</p>
+
+                        <h2>
+                            3h 18m
+                        </h2>
+
+                        <span>
+                            de espera
+                        </span>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-icon">
+                            
+                        </div>
+
+                        <p>Rotas otimizadas</p>
+
+                        <h2>
+                            87%
+                        </h2>
+
+                        <span>
+                            pela IA
+                        </span>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-icon">
+                            
+                        </div>
+
+                        <p>Economia estimada</p>
+
+                        <h2>
+                            R$ 18,4 mil
+                        </h2>
+
+                        <span>
+                            nesta semana
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    
+
+                    <div class="box">
+
+                        <div class="box-title">
+
+                            <div>
+                                <h3>
+                                    Rotas em tempo real
+                                </h3>
+
+                                <p>
+                                    Visualização das principais rotas
+                                </p>
+                            </div>
+
+                            <select id="tipoCarga">
+
+                                <option value="soja">
+                                    Soja
+                                </option>
+
+                                <option value="milho">
+                                    Milho
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="map">
+
+                            <div class="road road1"></div>
+
+                            <div class="road road2"></div>
+
+                            <div class="location fazenda">
+                                
+                                <span>Fazenda</span>
+                            </div>
+
+                            <div class="location ponto">
+                                
+                                <span>Ponto crítico</span>
+                            </div>
+
+                            <div class="location silo">
+                                
+                                <span>Silo</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="route-info">
+
+                            <div>
+                                <strong>18 km</strong>
+                                <span>rota otimizada</span>
+                            </div>
+
+                            <div>
+                                <strong>+12 min</strong>
+                                <span>tempo economizado</span>
+                            </div>
+
+                            <div>
+                                <strong>-14%</strong>
+                                <span>combustível</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    
+
+                    <div class="box ai-box">
+
+                        <div class="ai-header">
+
+                            <div class="ai-icon">
+                                
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Recomendação da IA
+                                </h3>
+
+                                <small>
+                                    Análise automática
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <p id="aiText">
+
+                            O Silo A apresenta alta ocupação.
+                            A IA recomenda redirecionar parte
+                            dos caminhões para a Unidade B.
+
+                        </p>
+
+                        <button
+                            id="applyAI"
+                            class="btn-primary"
+                        >
+                            Aplicar recomendação
+                        </button>
+
+                        <div id="aiResult"></div>
+
+                    </div>
+
+                </div>
+
+
+                
+
+                <div class="box">
+
+                    <h3>
+                        Status dos silos
+                    </h3>
+
+                    <div class="silos">
+
+                        <div class="silo-item">
+
+                            <div class="silo-header">
+                                <span>Silo A</span>
+                                <b>92%</b>
+                            </div>
+
+                            <div class="progress">
+                                <div style="width:92%"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="silo-item">
+
+                            <div class="silo-header">
+                                <span>Silo B</span>
+                                <b>61%</b>
+                            </div>
+
+                            <div class="progress">
+                                <div style="width:61%"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="silo-item">
+
+                            <div class="silo-header">
+                                <span>Silo C</span>
+                                <b>38%</b>
+                            </div>
+
+                            <div class="progress">
+                                <div style="width:38%"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                
+
+                <div class="box">
+
+                    <div class="box-title">
+
+                        <div>
+                            <h3>
+                                Caminhões monitorados
+                            </h3>
+
+                            <p>
+                                Acompanhamento das cargas
+                            </p>
+                        </div>
+
+                        <button id="refreshButton" class="btn-secondary">
+                             Atualizar
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Caminhão</th>
+                                    <th>Carga</th>
+                                    <th>Destino</th>
+                                    <th>Status</th>
+                                    <th>Previsão</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="truckTable">
+
+                                <tr>
+                                    <td>TRK-021</td>
+                                    <td>Soja</td>
+                                    <td>Silo A</td>
+                                    <td>
+                                        <span class="status waiting">
+                                            Em fila
+                                        </span>
+                                    </td>
+                                    <td>3h 42m</td>
+                                </tr>
+
+                                <tr>
+                                    <td>TRK-034</td>
+                                    <td>Milho</td>
+                                    <td>Silo B</td>
+                                    <td>
+                                        <span class="status transit">
+                                            Em trânsito
+                                        </span>
+                                    </td>
+                                    <td>48 min</td>
+                                </tr>
+
+                                <tr>
+                                    <td>TRK-057</td>
+                                    <td>Soja</td>
+                                    <td>Silo C</td>
+                                    <td>
+                                        <span class="status unloading">
+                                            Descargando
+                                        </span>
+                                    </td>
+                                    <td>12 min</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            
+
+            <section id="rotas" class="page">
+
+                <div class="page-header">
+
+                    <h1> Rotas inteligentes</h1>
+
+                    <p>
+                        A IA analisa as condições das rotas
+                        e sugere alternativas.
+                    </p>
+
+                </div>
+
+                <div class="route-cards">
+
+                    <div class="route-card">
+
+                        <h3>Fazenda → Silo A</h3>
+
+                        <p>Distância: 84 km</p>
+
+                        <p>Tempo estimado: 1h 45m</p>
+
+                        <span class="route-bad">
+                            Congestionada
+                        </span>
+
+                    </div>
+
+
+                    <div class="route-card recommended">
+
+                        <h3>Fazenda → Silo B</h3>
+
+                        <p>Distância: 91 km</p>
+
+                        <p>Tempo estimado: 1h 32m</p>
+
+                        <span class="route-good">
+                             Rota recomendada
+                        </span>
+
+                    </div>
+
+
+                    <div class="route-card">
+
+                        <h3>Fazenda → Silo C</h3>
+
+                        <p>Distância: 103 km</p>
+
+                        <p>Tempo estimado: 2h 04m</p>
+
+                        <span class="route-warning">
+                             Estrada degradada
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+          
+
+            <section id="silos" class="page">
+
+                <div class="page-header">
+
+                    <h1> Monitoramento dos silos</h1>
+
+                    <p>
+                        Acompanhe a capacidade e as filas.
+                    </p>
+
+                </div>
+
+                <div class="silo-grid">
+
+                    <div class="big-silo">
+                        <h2>Silo A</h2>
+
+                        <div class="big-number">
+                            92%
+                        </div>
+
+                        <p>ocupação</p>
+
+                        <hr>
+
+                        <p>
+                             24 caminhões aguardando
+                        </p>
+
+                        <p>
+                             4h 12m de espera
+                        </p>
+
+                    </div>
+
+
+                    <div class="big-silo">
+                        <h2>Silo B</h2>
+
+                        <div class="big-number">
+                            61%
+                        </div>
+
+                        <p>ocupação</p>
+
+                        <hr>
+
+                        <p>
+                             10 caminhões aguardando
+                        </p>
+
+                        <p>
+                             1h 25m de espera
+                        </p>
+
+                    </div>
+
+
+                    <div class="big-silo">
+                        <h2>Silo C</h2>
+
+                        <div class="big-number">
+                            38%
+                        </div>
+
+                        <p>ocupação</p>
+
+                        <hr>
+
+                        <p>
+                             8 caminhões aguardando
+                        </p>
+
+                        <p>
+                             48 min de espera
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            
+
+            <section id="caminhoes" class="page">
+
+                <div class="page-header">
+
+                    <h1> Caminhões</h1>
+
+                    <p>
+                        Controle da frota durante a safra.
+                    </p>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Motorista</th>
+                                    <th>Carga</th>
+                                    <th>Origem</th>
+                                    <th>Destino</th>
+                                    <th>Status</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>TRK-021</td>
+                                    <td>João Silva</td>
+                                    <td>Soja</td>
+                                    <td>Fazenda Norte</td>
+                                    <td>Silo A</td>
+                                    <td>Em fila</td>
+                                </tr>
+
+                                <tr>
+                                    <td>TRK-034</td>
+                                    <td>Marcos Souza</td>
+                                    <td>Milho</td>
+                                    <td>Fazenda Sul</td>
+                                    <td>Silo B</td>
+                                    <td>Em trânsito</td>
+                                </tr>
+
+                                <tr>
+                                    <td>TRK-057</td>
+                                    <td>Pedro Santos</td>
+                                    <td>Soja</td>
+                                    <td>Fazenda Leste</td>
+                                    <td>Silo C</td>
+                                    <td>Descargando</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+          
+
+           <section id="ia" class="page">
+
+            <div class="page-header">
+
+                <h1> Inteligência Artificial</h1>
+
+                <p>
+                    Central de análise e recomendações.
+                </p>
+
+            </div>
+
+            <div class="ai-dashboard">
+
+                <div class="ai-large">
+
+                    <div class="ai-icon big">
+                        
+                    </div>
+
+                    <h2>
+                        Análise da operação
+                    </h2>
+
+                    <p>
+                        Com base nos dados simulados de ocupação
+                        dos silos e movimentação dos caminhões,
+                        o sistema identificou um gargalo no Silo A.
+                    </p>
+
+                    <div class="recommendation">
+
+                        <strong>
+                            Recomendação:
+                        </strong>
+
+                        <p>
+                            Redirecionar aproximadamente 35%
+                            dos próximos caminhões para o Silo B.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ai-stat">
+
+                    <span>
+                        Risco de congestionamento
+                    </span>
+
+                    <strong>
+                        ALTO
+                    </strong>
+
+                </div>
+
+
+                <div class="ai-stat">
+
+                    <span>
+                        Economia potencial
+                    </span>
+
+                    <strong>
+                        R$ 18,4 mil
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+
+        <section id="relatorios" class="page">
+
+            <div class="page-header">
+
+                <h1> Relatórios</h1>
+
+                <p>
+                    Indicadores da operação logística.
+                </p>
+
+            </div>
+
+            <div class="report-grid">
+
+                <div class="report-card">
+                    <span>Grãos transportados</span>
+                    <strong>12.840 t</strong>
+                </div>
+
+                <div class="report-card">
+                    <span>Combustível economizado</span>
+                    <strong>14%</strong>
+                </div>
+
+                <div class="report-card">
+                    <span>Tempo de espera reduzido</span>
+                    <strong>27%</strong>
+                </div>
+
+                <div class="report-card">
+                    <span>Perdas evitadas</span>
+                    <strong>R$ 32 mil</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
